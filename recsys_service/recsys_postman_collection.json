@@ -1,0 +1,66 @@
+{
+  "info": {
+    "name": "Recsys Service API",
+    "description": "Health, metrics, predict для сервиса рекомендаций",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000" }
+  ],
+  "item": [
+    {
+      "name": "GET /health",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/health",
+          "host": ["{{base_url}}"],
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "GET /metrics",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{base_url}}/metrics",
+          "host": ["{{base_url}}"],
+          "path": ["metrics"]
+        }
+      }
+    },
+    {
+      "name": "POST /predict (valid)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\":123,\"recent_items\":[119736,7943,248676],\"k\":3}"
+        },
+        "url": {
+          "raw": "{{base_url}}/predict",
+          "host": ["{{base_url}}"],
+          "path": ["predict"]
+        }
+      }
+    },
+    {
+      "name": "POST /predict (invalid: k=0 -> 422)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"user_id\":123,\"recent_items\":[119736],\"k\":0}"
+        },
+        "url": {
+          "raw": "{{base_url}}/predict",
+          "host": ["{{base_url}}"],
+          "path": ["predict"]
+        }
+      }
+    }
+  ]
+}

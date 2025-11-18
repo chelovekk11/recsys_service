@@ -1,0 +1,26 @@
+{
+  "base": {
+    "P@3": 0.0591,
+    "NDCG@3": 0.0769,
+    "Cov@3": 5.19,
+    "cfg": {
+      "W_view": 1.0,
+      "W_cart": 10.0,
+      "W_trx": 18.0,
+      "LAMBDA": 0.12,
+      "MAX_USER_HISTORY": 30,
+      "SIM_TOPK": 500,
+      "CAND_TOPK": 700,
+      "use_tail_filter": true,
+      "min_user_events": 5,
+      "min_item_trx": 3,
+      "neg_ratio": 5,
+      "test_size_users": 0.5,
+      "hgb_max_depth": 6,
+      "hgb_lr": 0.08,
+      "hgb_min_samples_leaf": 80,
+      "hgb_l2": 1.0,
+      "seed": 42
+    }
+  }
+}
